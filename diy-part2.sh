@@ -17,7 +17,6 @@ git clone https://github.com/chenhw2/luci-app-aliddns.git package/lean/luci-app-
 
 git clone https://github.com/tty228/luci-app-serverchan.git package/lean/luci-app-serverchan
 
-rm -rf OpenClash
 git clone --single-branch --branch master https://github.com/vernesong/OpenClash.git
 cd OpenClash
 mv luci-app-openclash ../package/lean/luci-app-openclash
