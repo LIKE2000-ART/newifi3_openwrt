@@ -11,7 +11,7 @@
 #
 
 # Modify default IP
-sed -i 's/192.168.1.1/192.168.1.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
 git clone https://github.com/chenhw2/luci-app-aliddns.git package/lean/luci-app-aliddns
 
@@ -19,3 +19,12 @@ git clone --single-branch --branch master https://github.com/vernesong/OpenClash
 
 git clone https://github.com/tty228/luci-app-serverchan.git package/lean/luci-app-serverchan
 
+git clone --single-branch --branch master https://github.com/vernesong/OpenClash.git
+mv OpenClash/luci-app-openclash ../package/lean/luci-app-openclash
+
+curl -sL -m 30 --retry 2 https://github.com/vernesong/OpenClash/releases/download/Clash/clash-"$CPU_MODEL".tar.gz -o /tmp/clash.tar.gz
+tar zxvf /tmp/clash.tar.gz -C /tmp >/dev/null 2>&1
+chmod +x /tmp/clash >/dev/null 2>&1
+mkdir -p .../package/luci-app-openclash/files/etc/openclash/core
+mv /tmp/clash .../package/luci-app-openclash/files/etc/openclash/core/clash >/dev/null 2>&1
+rm -rf /tmp/clash.tar.gz >/dev/null 2>&1
