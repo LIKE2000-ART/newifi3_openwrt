@@ -20,7 +20,7 @@ git clone --single-branch --branch master https://github.com/vernesong/OpenClash
 git clone https://github.com/tty228/luci-app-serverchan.git package/lean/luci-app-serverchan
 
 git clone --single-branch --branch master https://github.com/vernesong/OpenClash.git
-mv OpenClash/luci-app-openclash ../package/lean/luci-app-openclash
+mv OpenClash/luci-app-openclash package/lean/luci-app-openclash
 
 curl -sL -m 30 --retry 2 https://github.com/vernesong/OpenClash/releases/download/Clash/clash-"$CPU_MODEL".tar.gz -o /tmp/clash.tar.gz
 tar zxvf /tmp/clash.tar.gz -C /tmp >/dev/null 2>&1
